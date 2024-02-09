@@ -13,6 +13,5 @@ public class OrderItem {
         this.name = name;
         this.price = price;
     }
-    
-    
+
 }

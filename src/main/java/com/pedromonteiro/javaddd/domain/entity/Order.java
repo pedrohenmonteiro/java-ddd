@@ -19,6 +19,7 @@ public class Order {
     }
 
 
-    
-
-}
+    public Integer total() {
+        return this.items.size();
+    }
+} 

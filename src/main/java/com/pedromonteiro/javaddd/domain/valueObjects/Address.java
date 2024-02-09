@@ -4,6 +4,7 @@ package com.pedromonteiro.javaddd.domain.valueObjects;
 // imutável
 // identificado apenas pelo seu valor
 
+
 public class Address {
     
     private String street;

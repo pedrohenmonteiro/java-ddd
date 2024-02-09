@@ -30,6 +30,9 @@ public class Customer {
         this.validate();
     }
 
+    public boolean isActive() {
+        return this.active;
+    }
 
     public void active() {
         if(this.address == null) throw new Error("Address is mandatory to activate a customer");
@@ -38,6 +41,14 @@ public class Customer {
 
     public void deactive() {
         this.active = false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
     
 }
