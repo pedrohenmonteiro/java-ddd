@@ -9,24 +9,30 @@ public class Customer {
     
     private String id;
     private String name;
-    private String addressString;
-    private Boolean active = true; 
+    private String address;
+    private Boolean active = false; 
     
     
-    public Customer(String id, String name, String addressString, Boolean active) {
+    public Customer(String id, String name) {
         this.id = id;
         this.name = name;
-        this.addressString = addressString;
-        this.active = active;
+        this.validate();
+    }
+
+    public void validate() {
+        if (this.name.length() == 0) throw new Error("Name is required");
+        if (this.id.length() == 0) throw new Error("Id is required");
     }
 
 
     public void changeName(String name) {
         this.name = name;
+        this.validate();
     }
 
 
     public void active() {
+        if(this.address.length() == 0) throw new Error("Address is mandatory to activate a customer");
         this.active = true;
     }
 
