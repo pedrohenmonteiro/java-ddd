@@ -10,45 +10,28 @@ public class Customer {
     private String id;
     private String name;
     private String addressString;
+    private Boolean active = true; 
     
     
-    public Customer(String id, String name, String addressString) {
+    public Customer(String id, String name, String addressString, Boolean active) {
         this.id = id;
         this.name = name;
         this.addressString = addressString;
+        this.active = active;
     }
 
 
-    public String getId() {
-        return id;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-
-    public String getAddressString() {
-        return addressString;
-    }
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
-    public void setName(String name) {
+    public void changeName(String name) {
         this.name = name;
     }
 
 
-    public void setAddressString(String addressString) {
-        this.addressString = addressString;
+    public void active() {
+        this.active = true;
     }
 
-    
-    
+    public void deactive() {
+        this.active = false;
+    }
     
 }
