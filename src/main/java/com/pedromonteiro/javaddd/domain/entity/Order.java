@@ -9,6 +9,7 @@ public class Order {
     
     private String id;
     private String customerId;
+    private Double total;
     private List<OrderItem> items = new ArrayList<>();
 
 
@@ -16,10 +17,44 @@ public class Order {
         this.id = id;
         this.customerId = customerId;
         this.items = items;
+        this.total = this.total();
+        this.validate();
     }
 
 
-    public Integer total() {
-        return this.items.size();
+    public Double total() {
+        var count = 0.0;
+        for (var item : this.items) {
+            count += item.getPrice();
+        }
+        return count;
     }
+
+    private boolean validate() {
+        if (this.id.length() == 0) throw new Error("Id is required");
+        if (this.customerId.length() == 0) throw new Error("customerId is required");
+        if (this.getItems().isEmpty()) throw new Error("Items are required");
+        return true;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+
+    public Double getTotal() {
+        return total;
+    }
+
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
+    
 } 

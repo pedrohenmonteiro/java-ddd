@@ -1,7 +1,5 @@
 package com.pedromonteiro.javaddd.domain.entity;
 
-import java.math.BigInteger;
-
 public class OrderItem {
    
     private String id;
@@ -14,4 +12,17 @@ public class OrderItem {
         this.price = price;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    
 }

@@ -9,20 +9,27 @@ public class CustomerTest {
     
 @Test
 void mustThrowError_when_idIsEmpty() {
-    assertThrows(Error.class, () -> new Customer("", "John"));
-    
+    var error = assertThrows(Error.class, () -> new Customer("", "John"));
+    assertEquals(error.getMessage(), "Id is required");
+   
 }
 
-
+@Test
 void mustThrowError_when_NameisEmpty() {
-    assertThrows(Error.class, () -> new Customer("33", ""));
+   var error = assertThrows(Error.class, () -> new Customer("32", ""));
+    assertEquals(error.getMessage(), "Name is required");
+   
 }
 
-void mustThrowError_when_AddressIsUndefined() {
-    assertThrows(Error.class, () -> new Customer("33", "John"));
+@Test
+void mustThrowError_when_ActivateACustomerAndAddressIsNul() {
+    var customer = new Customer("123", "John");
+   var error = assertThrows(Error.class, () -> customer.active());
+   assertEquals(error.getMessage(), "Address is mandatory to activate a customer");
+   
 }
 
-
+@Test
 void mustChangeName() {
     var customer = new Customer("123", "John");
     customer.changeName("Peter");
@@ -31,6 +38,7 @@ void mustChangeName() {
 }
 
 
+@Test
 void mustActivateCustomer() {
     var customer = new Customer("123", "Pedro");
     var address = new Address("rua", 1, "939934-93", "São Paulo");
@@ -41,6 +49,7 @@ void mustActivateCustomer() {
     assertEquals(customer.isActive(), true);
 }
 
+@Test
 void mustDeactivateCustomer() {
     var customer = new Customer("123", "Pedro");
 
