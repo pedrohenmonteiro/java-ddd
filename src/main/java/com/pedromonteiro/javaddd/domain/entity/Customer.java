@@ -11,7 +11,7 @@ public class Customer {
     private String name;
     private Address address;
     private Boolean active = false; 
-    
+    private int rewardsPoints = 0;
     
     public Customer(String id, String name) {
         this.id = id;
@@ -43,12 +43,28 @@ public class Customer {
         this.active = false;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
     public String getName() {
         return name;
     }
 
+    public int getRewardsPoints() {
+        return rewardsPoints;
+    }
+
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public void addRewardPoints(Double points) {
+        this.rewardsPoints += points;
     }
     
 }

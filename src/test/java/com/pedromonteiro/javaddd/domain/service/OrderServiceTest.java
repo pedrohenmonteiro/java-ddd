@@ -7,10 +7,22 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
+import com.pedromonteiro.javaddd.domain.entity.Customer;
 import com.pedromonteiro.javaddd.domain.entity.Order;
 import com.pedromonteiro.javaddd.domain.entity.OrderItem;
 
 public class OrderServiceTest {
+
+    @Test
+    void mustPlaceAnOrder() {
+        var customer = new Customer("c1", "Customer 1");
+        var item1 = new OrderItem("i1", "p1", "Item 1", 10.0, 1);
+
+        var order = OrderService.placeOrder(customer, new ArrayList<>(Arrays.asList(item1)));
+
+        assertEquals(5, customer.getRewardsPoints());
+        assertEquals(10, order.total());
+    }
     
     @Test
     void mustCountTotalOfOrders() {
