@@ -34,6 +34,7 @@ public class Order {
         if (this.id.length() == 0) throw new Error("Id is required");
         if (this.customerId.length() == 0) throw new Error("customerId is required");
         if (this.getItems().isEmpty()) throw new Error("Items are required");
+        if (this.items.stream().anyMatch(item -> item.getQuantity() <= 0)) throw new Error("Quantity must be greater than zero");
         return true;
     }
 
