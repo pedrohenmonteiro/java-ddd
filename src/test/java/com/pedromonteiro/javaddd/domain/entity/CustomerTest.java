@@ -49,6 +49,7 @@ void mustActivateCustomer() {
     assertEquals(true, customer.isActive());
 }
 
+
 @Test
 void mustDeactivateCustomer() {
     var customer = new Customer("123", "Pedro");
@@ -57,6 +58,18 @@ void mustDeactivateCustomer() {
     assertEquals(false, customer.isActive());
 }
 
+
+@Test
+void mustAddRewardPoints() {
+    var customer = new Customer("1", "Customer 1");
+    assertEquals(0, customer.getRewardsPoints());
+
+    customer.addRewardPoints(10.0);
+    assertEquals(10, customer.getRewardsPoints());
+
+    customer.addRewardPoints(10.0);
+    assertEquals(20, customer.getRewardsPoints());
+}
 
 
 }
