@@ -10,14 +10,14 @@ public class CustomerTest {
 @Test
 void mustThrowError_when_idIsEmpty() {
     var error = assertThrows(Error.class, () -> new Customer("", "John"));
-    assertEquals(error.getMessage(), "Id is required");
+    assertEquals("Id is required", error.getMessage());
    
 }
 
 @Test
 void mustThrowError_when_NameisEmpty() {
    var error = assertThrows(Error.class, () -> new Customer("32", ""));
-    assertEquals(error.getMessage(), "Name is required");
+    assertEquals("Name is required", error.getMessage());
    
 }
 
@@ -25,7 +25,7 @@ void mustThrowError_when_NameisEmpty() {
 void mustThrowError_when_ActivateACustomerAndAddressIsNul() {
     var customer = new Customer("123", "John");
    var error = assertThrows(Error.class, () -> customer.active());
-   assertEquals(error.getMessage(), "Address is mandatory to activate a customer");
+   assertEquals("Address is mandatory to activate a customer", error.getMessage());
    
 }
 
@@ -34,7 +34,7 @@ void mustChangeName() {
     var customer = new Customer("123", "John");
     customer.changeName("Peter");
 
-    assertEquals(customer.getName(), "Peter");
+    assertEquals("Peter", customer.getName());
 }
 
 
@@ -46,7 +46,7 @@ void mustActivateCustomer() {
 
     customer.active();
 
-    assertEquals(customer.isActive(), true);
+    assertEquals(true, customer.isActive());
 }
 
 @Test
@@ -54,7 +54,7 @@ void mustDeactivateCustomer() {
     var customer = new Customer("123", "Pedro");
 
     customer.deactive();
-    assertEquals(customer.isActive(), false);
+    assertEquals(false, customer.isActive());
 }
 
 

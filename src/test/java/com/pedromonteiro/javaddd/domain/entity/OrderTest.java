@@ -13,21 +13,21 @@ public class OrderTest {
 @Test
 void mustThrowError_when_idIsEmpty() {
    var error = assertThrows(Error.class, () -> new Order("", "123", new ArrayList<>()));
-   assertEquals(error.getMessage(), "Id is required");
+   assertEquals("Id is required", error.getMessage());
     
 }
 
 @Test
 void mustThrowError_when_customerIdIsEmpty() {
    var error = assertThrows(Error.class, () -> new Order("123", "", new ArrayList<>()));
-    assertEquals(error.getMessage(), "customerId is required");
+    assertEquals("customerId is required", error.getMessage());
     
 }
 
 @Test
 void mustThrowError_when_itemsListIsEmpty() {
    var error = assertThrows(Error.class, () -> new Order("123", "321", new ArrayList<>()));
-     assertEquals(error.getMessage(), "Items are required");
+     assertEquals("Items are required", error.getMessage());
    
 }
 
@@ -38,11 +38,11 @@ void mustCalculateTotal() {
 
     var order = new Order("o1", "c1", new ArrayList<>(Arrays.asList(item)));
 
-    assertEquals(order.total(), 200.0);
+    assertEquals(200.0, order.total());
 
     var order2 = new Order("o2", "c1", new ArrayList<>(Arrays.asList(item,item2)));
 
-    assertEquals(order2.total(), 600.0);
+    assertEquals(600.0, order2.total());
 
  }
 
@@ -52,7 +52,7 @@ void mustThrowError_when_itemQtdIsntGreaterThanZero() {
     var item = new OrderItem("123", "p1", "item1", 100.0, 0);
     
     var error = assertThrows(Error.class, () -> new Order("o1", "c1", new ArrayList<>(Arrays.asList(item))));
-     assertEquals(error.getMessage(), "Quantity must be greater than zero");
+     assertEquals("Quantity must be greater than zero", error.getMessage());
   
 }
 
